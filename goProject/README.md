@@ -7,7 +7,7 @@ ListenAndServe 5000 (Example: localhost:5000)
   1. Remove any previous Go installation by deleting the /usr/local/go folder (if it exists), then extract the archive you just downloaded into /usr/local, creating a fresh Go tree in /usr/local/go:
 
 ```sh
-$ rm -rf /usr/local/go && tar -C /usr/local -xzf go1.19.1.linux-amd64.tar.gz
+$ rm -rf /usr/local/go && tar -C /usr/local -xzf go1.18.1.linux-amd64.tar.gz
 ```
 You may need to run the command as root or through sudo).
 
@@ -35,9 +35,12 @@ example
 ```sh
 $ goProject go run main.go
 ```
+### API Router: chi  
+
 
 ### Resources
 - [go](https://www.youtube.com/watch?v=lodF5BaZdDY&list=PLhdY0D_lA34W1wS2nJmQr-sssMDuQf-r8)
+- [chi](https://github.com/go-chi/chi)
 - [Dgraph go client](https://dgraph.io/docs/clients/go/)
 - [dgo](https://pkg.go.dev/github.com/dgraph-io/dgo)
 - [context](https://www.youtube.com/watch?v=yFN-IZQfdpY) 
