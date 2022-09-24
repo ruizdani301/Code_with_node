@@ -40,8 +40,8 @@ export default {
       name: "",
     };
     // to configure node condition
-    var suma = "<b>Total suma</b>"
-    editor.addNode("foo", 2, 1, 700, 250, "action", data, suma, false);
+    var add = "<b>Total suma</b>";
+    editor.addNode("foo", 2, 1, 700, 250, "action", data, add, false);
 
     // to configure nodo numA
     var numA = `<label for="numero">numeroA:</label>
@@ -56,16 +56,16 @@ export default {
     editor.addNode("bar", 0, 1, 300, 100, "action", data, numB, false);
 
     // to configure nodo Totalsuma
-    var condition = "<b> If Condition</b>"
+    var condition = "<b> If </b>";
     editor.addNode("bar", 2, 1, 10, 10, "action", data, condition, false);
-    
-    // to configure nodo Totalresta
-    var resta = "<b>Total resta</b>"
-    editor.addNode("bar", 2, 1, 10, 90, "action", data, resta, false);
 
     // to configure nodo Totalresta
-    var resta = "<b>Total Multiplicación</b>"
-    editor.addNode("bar", 2, 1, 10, 180, "action", data, resta, false);
+    var sub = "<b>Total resta</b>";
+    editor.addNode("bar", 2, 1, 10, 90, "action", data, sub, false);
+
+    // to configure nodo Totalresta
+    var mult = "<b>Total Multiplicación</b>";
+    editor.addNode("bar", 2, 1, 10, 180, "action", data, mult, false);
 
     editor.addConnection(1, 2, "output_1", "input_1");
     editor.addConnection(1, 3, "output_1", "input_1");
@@ -88,7 +88,6 @@ export default {
 
 .drawflow .drawflow-node {
   display: block;
- 
 }
 
 .drawflow .drawflow-node .inputs,
@@ -98,7 +97,6 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  
 }
 
 .drawflow .drawflow-node .input {
@@ -116,6 +114,4 @@ export default {
   height: 50px;
   padding: 0;
 }
-
-
 </style>

@@ -1,18 +1,19 @@
 <script>
 import axios from "axios";
 
- export default {
-  name: 'theheader',
-  // pongo todas las variables que se usen en el render del template
-  data: function() { 
-  return {
-    items: [],
-    itemSelected: ''
-  };
-},
- methods:{
+export default {
+  name: "theheader",
+  //variables used in the template
+  data: function () {
+    return {
+      items: [],
+      itemSelected: "",
+    };
+  },
+  methods: {
     async getOneItem() {
-      console.log('item seleccionado', this.itemSelected)
+      console.log("item seleccionado", this.itemSelected);
+      this.$emit("listen", this.itemSelected);
       /*try {
         let response = await axios.get("http://localhost:5000/programs/uid");
         this.items = response.data.results;
@@ -27,96 +28,116 @@ import axios from "axios";
         let response = await axios.get("http://localhost:5000/programs");
         this.items = response.data.results;
       } catch (error) {
-          console.log(error);
+        console.log(error);
       }
       console.log(this.items);
-      
     },
-  }
- }
+  },
+};
 </script>
 
 <template>
-  <!--<nav class="flex-container"> 
-    <button class="flex-item" @click="guardar">Guardar</button>
-    <button class="flex-item" @click="getOneItem">un programa <input type="text" id="getone" placeholder="nombre del programa"></button>
-    <button class="flex-item" v-on:click="getAllItems">Listar programas</button>
-    <button class="flex-item" @click="">Eliminar</button>
-  </nav>-->
+  <h2>Code Nodes</h2>
   <nav>
     <form class="flex-forms">
-      <input type="button" @click="getOneItem" value="Obtener programa" class="name">
-      <input type="text" id="getone" class="getone" placeholder="nombre del programa"><br>
-    </form>
-     <form class="flex-forms">
-      <input type="submit" value="Guardar" class="name">
-      <input type="text" id="getone" class="getone" placeholder="nombre del programa"><br>
+      <input type="submit" value="Guardar" class="name" />
+      <input
+        type="text"
+        id="getone"
+        class="getone"
+        placeholder="nombre del programa"
+      /><br />
     </form>
 
-    <form>
-      <label form="programs"  @click="getAllItems">listar programas</label>
-      <select name="programs" id="programs" v-model="itemSelected" @change="getOneItem()">
-        <option v-for="item in items" :value="item">{{ item.name }}</option>
+    <form class="flex-list">
+      <label class="list" form="programs" @click="getAllItems"
+        >Listar programas</label
+      >
+      <select
+        name="programs"
+        id="programs"
+        v-model="itemSelected"
+        @change="getOneItem()"
+      >
+        <option v-for="item in items" :value="item">
+          {{ item.name }}
+        </option>
       </select>
-       <input type="submit" value="traer" class="name">
     </form>
-    <!--<button class="listar" @click="getAllItems">Listar programas
-      <ul v-for="item in items">
-        <li>{{ item.name }}</li>
-      </ul>
-    </button>-->
   </nav>
 </template>
 
 <style scoped>
-nav{
-display:flex;
-box-sizing: border-box;
-place-items: center;
-width:75%;
+h2 {
+  font-size: 35px;
+  font-style: oblique;
+  color: #10a07b;
+  text-align: center;
+  animation-name: turn;
+  animation-duration: 1s;
+}
+@keyframes turn {
+  0% {
+    color: red;
+  }
+
+  50% {
+    color: lightblue;
+  }
+  100% {
+    color: green;
+  }
+}
+nav {
+  display: flex;
+  box-sizing: border-box;
+  place-items: center;
+  width: 30%;
 }
 
-.flex-forms input{
+.flex-forms input {
   display: flex;
-  background-color: #D4EFDF;
+  background-color: #d4efdf;
   border-radius: 5px;
   border: 0;
   box-sizing: border-box;
   justify-content: center;
-  font-size:20px;
-  width:90%
+  font-size: 20px;
+  width: 90%;
 }
 
-.flex-forms input.name{
-background:red;
+.flex-forms input.name {
+  background: red;
 }
-.flex-forms input.name:hover{
-background:gold;
+.flex-forms input.name:hover {
+  background: gold;
 }
 
 .flex-forms input #getone {
-width:70%;
+  width: 70%;
 }
-.listar{
+
+.listar:hover {
+  background: gold;
+}
+.flex-list {
+  display: flex;
+  background-color: #d4efdf;
+  font-size: 20px;
+  flex-direction: column;
+  width: 60%;
+  margin-top: -16px;
+}
+.flex-list #programs {
+  height: 26px;
   border-radius: 5px;
-  border: 0;
-  box-sizing: border-box;
-  justify-content: center;
-  font-size:20px;
-  width:30%;
-  background:red;
-  
 }
-.listar:hover{
-  background:gold;
+.flex-list label {
+  padding-left: 10px;
+  border-radius: 5px;
+  background: red;
 }
-/*.flex-item {
-  width:22%;
-  margin:1px;
-  font-size:20px;
-  line-height: 40px;
-  border-top-left-radius:30px;
-  background-color: #D4EFDF;
-  border: PowderBlue 5px double;
-}*/
+.flex-list label.list:hover {
+  background: gold;
+}
 </style>

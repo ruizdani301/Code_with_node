@@ -1,6 +1,5 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
-import theheader from "./components/theheader.vue"
 </script>
 
 <template>
@@ -12,11 +11,8 @@ import theheader from "./components/theheader.vue"
       width="125"
       height="125"
     />
-  
   </header>
-  <section>
-    <theheader />
-  </section>
+
   <RouterView />
 </template>
 
@@ -30,13 +26,6 @@ header {
   display: block;
   margin: 0 auto 2rem;
 }
-
-/*nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}*/
 
 @media (min-width: 1024px) {
   header {
@@ -54,10 +43,9 @@ header {
     place-items: flex-start;
     flex-wrap: wrap;
   }
-  section{
+  section {
     display: flex;
     justify-content: center;
   }
-  
 }
 </style>

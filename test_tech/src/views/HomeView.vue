@@ -3,17 +3,27 @@ import theheader from "../components/theheader.vue";
 import DrawFlow from "../components/DrawFlow.vue";
 export default {
   name: "App",
-  components: { DrawFlow },
-}
+  components: { DrawFlow, theheader },
+
+  data() {
+    return {
+      dateToDraw: "",
+    };
+  },
+
+  methods: {
+    toDraw(value) {
+      this.dateToDraw = value;
+      console.log("ste array llega al padre", this.dateToDraw);
+      alert("dateToDraw");
+    },
+  },
+};
 </script>
 
 <template>
-<DrawFlow :numberB="numberB" />
-<h2>hola gordis</h2>
-<theheader />
-  
+  <theheader @listen="toDraw" />
+  <DrawFlow :valor="dateToDraw" />
 </template>
 
-<style>
-
-</style>
+<style></style>
